@@ -46,3 +46,38 @@ If Ardino does not have your programmer, select **Sketch** -> **Export binary fi
 After compilation, two **.hex** files will appear in the project folder, you need the **BIM32_Radio-sensor.ino.eightanaloginputs.hex** one. And you need to flash it into **atmega328p** using a programmer. Set the fuses as in the screenshot below.
 
 <p align="center"><img src="./img/radio_sensor_fuses_RU.jpg" alt="weather monitor BIM32 radio-sensor fuses"></p>
+
+
+# Photo instructions for assembling a 3D printed case
+
+The case is designed for three AAAA (or LR61) batteries. Why them? They are quite small, but quite capacious. You can, of course, use any others, but the case is designed for these. AAAA batteries are not sold in any store and their cost is noticeably higher than AAA or AA. Therefore, it is cheaper and easier to get such batteries from a 9-volt battery 6LR61, it contains as many as six pieces.
+
+<p align="center"><img src="./img/battery.png" alt="weather monitor BIM32 radio-sensor battery"></p>
+
+Next, we will need a fully assembled and tested PCB
+
+<p align="center"><img src="./img/pcb.png" alt="weather monitor BIM32 radio-sensor pcb"></p>
+
+Then, you need to 3D print a battery holder. It is advisable to print it with TPU material, it is like silicone, it can be bent, it is springy and does not break. I made the contacts for the batteries from a wire. There are already special holes for this.
+
+All other parts of the case are printed with ASA material.
+
+<p align="center"><img src="./img/battery_holder.png" alt="weather monitor BIM32 radio-sensor battery holder"></p>
+
+Next you need to install insert knurled nuts brass hotmelt
+
+<p align="center"><img src="./img/radio_sensor1.png" alt="weather monitor BIM32 radio-sensor brass insert nut"></p>
+
+Next, I hope, from the photos it will be clear how to assembly
+
+<p align="center"><img src="./img/radio_sensor2.png" alt="weather monitor BIM32 radio-sensor battery holder"></p>
+
+<p align="center"><img src="./img/radio_sensor3.png" alt="weather monitor BIM32 radio-sensor pcb"></p>
+
+<p align="center"><img src="./img/radio_sensor4.png" alt="weather monitor BIM32 radio-sensor glue"></p>
+
+<p align="center"><img src="./img/radio_sensor5.png" alt="weather monitor BIM32 radio-sensor assembly"></p>
+
+<p align="center"><img src="./img/radio_sensor6.png" alt="weather monitor BIM32 radio-sensor enclosure"></p>
+
+<p align="center"><img src="./img/radio_sensor7.png" alt="weather monitor BIM32 radio-sensor enclosure"></p>
