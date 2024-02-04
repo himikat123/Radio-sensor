@@ -1,5 +1,5 @@
 /* 
- *  BIM32 Radio-sensor v4.0
+ *  BIM32 Radio-sensor v4.1
  *  Copyright © himikat123@gmail.com, Nürnberg, Deutschland, 2022-2024
  *
  *  Arduino Nano - ATmega328P
@@ -18,6 +18,7 @@
 #include <SoftwareSerial.h>
 #include "config.h"
 #include "BIM32_Radio-sensor.h"
+#include "tm1637.h"
 
 Adafruit_BME280 bme280;
 SHT21 SHT21;
@@ -31,6 +32,7 @@ PZEM004Tv30 pzem(pzemSWSerial);
 SoftwareSerial S8_serial(SENSEAIR_RX, SENSEAIR_TX);
 S8_UART *sensor_S8;
 S8_sensor sensor; 
+TM1637 tm1637;
 
 void setup(){
   // Initialization pins to output
@@ -65,8 +67,12 @@ void setup(){
 }
 
 void loop(){
-  // If the power does not turn off, send data and try to 
-  // turn off the power again every 5 seconds
+  tm1637.print(datas.temp_1); /* Displaying sensor data on display TM1637 */
+  
+  /* 
+   * If the power does not turn off, send data and try to 
+   * turn off the power again every 5 seconds
+   */
   delay(5000);
   dataSend();
   powerOff();

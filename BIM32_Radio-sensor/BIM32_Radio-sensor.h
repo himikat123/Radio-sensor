@@ -9,6 +9,8 @@
 #define SENSEAIR_TX    9 // SENSEAIR_S8 UART RX pin (PB1 -> pin #13)
 #define PZEM_RX       10 // PZEM_004T UART TX pin (PB2 -> pin #14)
 #define PZEM_TX       11 // PZEM_004T UART RX pin (PB3 -> pin #15)
+#define TM1637_DIO    A0 // TM1637 display DIO pin (PC0 -> pin #23)
+#define TM1637_CLK    A1 // TM1637 display CLK pin (PC1 -> pin #24)
 
 struct{
   bool bme280 = false;
