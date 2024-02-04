@@ -10,6 +10,7 @@ Currently the radio-sensor supports the following sensors:
   * SHT21 - temperature and humidity sensor
   * DS18B20 - temperature sensor (four such sensors can be connected at once)
   * MAX44009 - ambient light sensor
+  * BH1750 - ambient light sensor
   * PZEM-004t - electricity meter (voltage, current, power, energy consumption, network frequency)
   * SenseAir S8 - CO2 sensor
 
