@@ -31,9 +31,10 @@
 /**
  * Ambient light sensor
  * 
- * Uncomment if you need it
+ * Uncomment if you need one of them
  */
 // #define USE_MAX44009
+// #define USE_BH1750
 
 
 /**

@@ -20,6 +20,7 @@ struct{
   bool ds18b20_3 = false;
   bool ds18b20_4 = false;
   bool max44009 = false;
+  bool bh1750 = false;
   bool s8 = false;
 } detected;
 

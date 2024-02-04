@@ -63,6 +63,11 @@ void sensorsInit(void){
     if(!max44009.begin()) detected.max44009 = true;
   #endif
 
+  //BH1750 initialization
+  #ifdef USE_BH1750
+    if(bh1750.begin(BH1750::CONTINUOUS_HIGH_RES_MODE_2)) detected.bh1750 = true;
+  #endif
+
    //S8 initialization
   #ifdef USE_S8
     sensor_S8->get_firmware_version(sensor.firm_version);
@@ -117,6 +122,11 @@ void getData(void){
   //MAX44009 read
   #ifdef USE_MAX44009
     if(detected.max44009) datas.light = max44009.get_lux();
+  #endif
+
+  //BH1750 read
+  #ifdef USE_BH1750
+    if(detected.bh1750) datas.light = bh1750.readLightLevel();
   #endif
     
   //Battery voltage read

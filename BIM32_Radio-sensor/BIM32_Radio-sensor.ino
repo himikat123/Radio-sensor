@@ -1,5 +1,5 @@
 /* 
- *  BIM32 Radio-sensor v4.1
+ *  BIM32 Radio-sensor v4.2
  *  Copyright © himikat123@gmail.com, Nürnberg, Deutschland, 2022-2024
  *
  *  Arduino Nano - ATmega328P
@@ -12,6 +12,7 @@
 #include "SHT21.h"           // v1.0.0 https://github.com/markbeee/SHT21
 #include <microDS18B20.h>    // v3.5.0 https://github.com/GyverLibs/microDS18B20
 #include <MAX44009.h>        // v1.2.3 https://github.com/dantudose/MAX44009
+#include <BH1750.h>          // v1.1.4 https://github.com/claws/BH1750
 #include <PZEM004Tv30.h>     // v1.1.2 https://github.com/mandulaj/PZEM-004T-v30
 #include <s8_uart.h>         // v1.0.1 https://github.com/jcomas/S8_UART
 
@@ -27,6 +28,7 @@ MicroDS18B20<ONE_WIRE_2> ds18b20_2;
 MicroDS18B20<ONE_WIRE_3> ds18b20_3;
 MicroDS18B20<ONE_WIRE_4> ds18b20_4;
 MAX44009 max44009;
+BH1750 bh1750(0x23);
 SoftwareSerial pzemSWSerial(PZEM_RX, PZEM_TX);
 PZEM004Tv30 pzem(pzemSWSerial);
 SoftwareSerial S8_serial(SENSEAIR_RX, SENSEAIR_TX);
@@ -129,6 +131,10 @@ void dataSend(void){
   if(detected.max44009){
     Serial.print(",\"l\":"); Serial.print(datas.light);
     Serial.print(",\"a\":"); Serial.print("\"MAX44009\"");
+  }
+  if(detected.bh1750){
+    Serial.print(",\"l\":"); Serial.print(datas.light);
+    Serial.print(",\"a\":"); Serial.print("\"BH1750\"");
   }
   #ifdef USE_DS18B20_1
     Serial.print(",\"ds\":["); Serial.print(datas.temp_1); 
