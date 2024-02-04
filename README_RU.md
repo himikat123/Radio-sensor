@@ -3,7 +3,7 @@
 
 # Радиодатчик
 
-Радиодатчик предназначен для работы с Монитором погоды BIM32. Он может работать в доме, или на улице. Питается от трех батареек типа АААА (LR61). Также, питать датчик можно от Li-Ion аккумулятора, но от батареек предпочтительнее, так как батарейкам не страшен уличный мороз.
+Радиодатчик предназначен для работы с <a href="https://github.com/himikat123/Weather-monitor-BIM32">Монитором погоды BIM32.</a> Он может работать в доме, или на улице. Питается от трех батареек типа АААА (LR61). Также, питать датчик можно от Li-Ion аккумулятора, но от батареек предпочтительнее, так как батарейкам не страшен уличный мороз.
 
 На данный момент радиодатчик поддерживает следующие датчики:
  * BME280 - датчик температуры, влажности и атмосферного давления
@@ -84,3 +84,16 @@
 <p align="center"><img src="./img/radio_sensor6.png" alt="weather monitor BIM32 radio-sensor enclosure"></p>
 
 <p align="center"><img src="./img/radio_sensor7.png" alt="weather monitor BIM32 radio-sensor enclosure"></p>
+
+<hr>
+
+
+## Нравится проект? Купи мне кофе, или пиво.
+
+<a href="https://www.buymeacoffee.com/himikat123Q">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Donate" width="150">
+</a>
+
+<a href="https://www.paypal.com/donate/?hosted_button_id=R4QDCRKTC9QA6">
+    <img src="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="Donate">
+</a>

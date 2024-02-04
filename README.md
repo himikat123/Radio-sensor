@@ -3,7 +3,7 @@
 
 # Radio-sensor
 
-The radio-sensor is designed to work with the Weather Monitor BIM32. It can work indoors or outdoors. Powered by three AAAA batteries (LR61). Also, the sensor can be powered from a Li-Ion battery, but it is preferable to use batteries, since batteries are not afraid of outdoor frost. 
+The radio-sensor is designed to work with the <a href="https://github.com/himikat123/Weather-monitor-BIM32">Weather Monitor BIM32.</a> It can work indoors or outdoors. Powered by three AAAA batteries (LR61). Also, the sensor can be powered from a Li-Ion battery, but it is preferable to use batteries, since batteries are not afraid of outdoor frost. 
 
 Currently the radio-sensor supports the following sensors:
   * BME280 - temperature, humidity and atmospheric pressure sensor
@@ -83,3 +83,16 @@ Next, I hope, from the photos it will be clear how to assembly
 <p align="center"><img src="./img/radio_sensor6.png" alt="weather monitor BIM32 radio-sensor enclosure"></p>
 
 <p align="center"><img src="./img/radio_sensor7.png" alt="weather monitor BIM32 radio-sensor enclosure"></p>
+
+<hr>
+
+
+## Do you like the project? Buy me coffee or beer.
+
+<a href="https://www.buymeacoffee.com/himikat123Q">
+    <img src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png" alt="Donate" width="150">
+</a>
+
+<a href="https://www.paypal.com/donate/?hosted_button_id=R4QDCRKTC9QA6">
+    <img src="https://img.shields.io/badge/Donate-PayPal-green.svg" alt="Donate">
+</a>
