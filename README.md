@@ -3,7 +3,9 @@
 
 # Radio-sensor
 
-The radio-sensor is designed to work with the Weather Monitor BIM32. It can work indoors or outdoors. Powered by three AAAA batteries (LR61). Currently the radio-sensor supports the following sensors:
+The radio-sensor is designed to work with the Weather Monitor BIM32. It can work indoors or outdoors. Powered by three AAAA batteries (LR61). Also, the sensor can be powered from a Li-Ion battery, but it is preferable to use batteries, since batteries are not afraid of outdoor frost. 
+
+Currently the radio-sensor supports the following sensors:
   * BME280 - temperature, humidity and atmospheric pressure sensor
   * SHT21 - temperature and humidity sensor
   * DS18B20 - temperature sensor (four such sensors can be connected at once)
