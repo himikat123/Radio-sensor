@@ -16,7 +16,7 @@ Currently the radio-sensor supports the following sensors:
 
 Of course, you don’t need to connect everything from this list, but only those sensors that you need.
 
-As an option, you can add a 4-digit, 7-segment display to the MAX1637. Only the temperature can be displayed on the display, from only one temperature sensor. This is an experimental feature, I may remove it in the future.
+As an option, you can add a 4-digit, 7-segment display to the TM1637. Only the temperature can be displayed on the display, from only one temperature sensor. This is an experimental feature, I may remove it in the future.
 
 The radio sensor is based on the Atmega328p microcontroller and the HC-12 radio module. This radio module operates at a frequency from 433.4 to 473.0 MHz and promises an information transmission range of up to 1800 meters.
 
