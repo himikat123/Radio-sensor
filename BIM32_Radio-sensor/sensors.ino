@@ -1,7 +1,7 @@
 /**
  * Sensors initialization
  */
-void sensorsInit(void){
+void sensorsInit(void) {
   
   //BME280 initialization
   #ifdef USE_BME280
@@ -9,49 +9,45 @@ void sensorsInit(void){
     else if(bme280.begin(0x76, &Wire)) detected.bme280 = true;
   #endif
 
-  #ifndef USE_BME280
-  
-    //SHT21 initialization
-    #ifdef USE_SHT21
-      SHT21.begin();
-      Wire.beginTransmission(SHT21_ADDRESS);
-      Wire.write(0xE7);
-      Wire.endTransmission();
-      delay(50);
-      Wire.requestFrom(SHT21_ADDRESS, 1);
-      if(Wire.available() == 1){
-        Wire.read();
-        detected.sht21 = true;
-      }
-    #endif
-    
+  //SHT21 initialization
+  #ifdef USE_SHT21
+    SHT21.begin();
+    Wire.beginTransmission(SHT21_ADDRESS);
+    Wire.write(0xE7);
+    Wire.endTransmission();
+    delay(50);
+    Wire.requestFrom(SHT21_ADDRESS, 1);
+    if(Wire.available() == 1) {
+      Wire.read();
+      detected.sht21 = true;
+    }
   #endif
 
   uint8_t ds_address[8];
   //DS18B20 initialization
   #ifdef USE_DS18B20_1
-    if(ds18b20_1.readAddress(ds_address)){
+    if(ds18b20_1.readAddress(ds_address)) {
       detected.ds18b20_1 = true;
       ds18b20_1.setResolution(DS18B20_RESOLUTION);
       ds18b20_1.requestTemp();
     }
   #endif
   #ifdef USE_DS18B20_2
-    if(ds18b20_2.readAddress(ds_address)){
+    if(ds18b20_2.readAddress(ds_address)) {
       detected.ds18b20_2 = true;
       ds18b20_2.setResolution(DS18B20_RESOLUTION);
       ds18b20_2.requestTemp();
     }
   #endif
   #ifdef USE_DS18B20_3
-    if(ds18b20_3.readAddress(ds_address)){
+    if(ds18b20_3.readAddress(ds_address)) {
       detected.ds18b20_3 = true;
       ds18b20_3.setResolution(DS18B20_RESOLUTION);
       ds18b20_3.requestTemp();
     }
   #endif
   #ifdef USE_DS18B20_4
-    if(ds18b20_4.readAddress(ds_address)){
+    if(ds18b20_4.readAddress(ds_address)) {
       detected.ds18b20_4 = true;
       ds18b20_4.setResolution(DS18B20_RESOLUTION);
       ds18b20_4.requestTemp();
@@ -79,11 +75,11 @@ void sensorsInit(void){
 /**
  * Get sensor data
  */
-void getData(void){
+void getData(void) {
   
   //BME280 read
   #ifdef USE_BME280
-    if(detected.bme280){
+    if(detected.bme280) {
       datas.temp = bme280.readTemperature();
       datas.hum = bme280.readHumidity();
       datas.pres = bme280.readPressure() / 100.0F;
@@ -92,7 +88,7 @@ void getData(void){
 
   //SHT21 read
   #ifdef USE_SHT21
-    if(detected.sht21){
+    if(detected.sht21) {
       datas.temp = SHT21.getTemperature();
       datas.hum = SHT21.getHumidity();
     }

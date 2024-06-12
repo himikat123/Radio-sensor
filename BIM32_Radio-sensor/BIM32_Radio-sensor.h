@@ -12,7 +12,7 @@
 #define TM1637_DIO    A0 // TM1637 display DIO pin (PC0 -> pin #23)
 #define TM1637_CLK    A1 // TM1637 display CLK pin (PC1 -> pin #24)
 
-struct{
+struct {
   bool bme280 = false;
   bool sht21 = false;
   bool ds18b20_1 = false;
@@ -24,7 +24,7 @@ struct{
   bool s8 = false;
 } detected;
 
-struct{
+struct {
   float temp = 404.0;
   float temp_1 = 404.0;
   float temp_2 = 404.0;

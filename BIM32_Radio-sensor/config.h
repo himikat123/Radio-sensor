@@ -25,8 +25,8 @@
  */
 // #define DS18B20_RESOLUTION 9
 // #define DS18B20_RESOLUTION 10
-// #define DS18B20_RESOLUTION 11
-#define DS18B20_RESOLUTION 12
+#define DS18B20_RESOLUTION 11
+// #define DS18B20_RESOLUTION 12
 
 /**
  * Ambient light sensor
