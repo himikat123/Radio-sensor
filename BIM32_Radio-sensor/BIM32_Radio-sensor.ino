@@ -1,5 +1,5 @@
 /* 
- *  BIM32 Radio-sensor v4.2
+ *  BIM32 Radio-sensor v4.3
  *  Copyright © himikat123@gmail.com, Nürnberg, Deutschland, 2022-2024
  *
  *  Arduino Nano - ATmega328P
@@ -36,10 +36,10 @@ S8_UART *sensor_S8;
 S8_sensor sensor; 
 TM1637 tm1637;
 
-void setup(){
+void setup() {
   // Initialization pins to output
   uint8_t pins[] = {12, 13, A0, A1, A3, SET, DONE};
-  for(uint8_t i = 0; i < sizeof(pins); i++) pinMode(pins[i], OUTPUT);
+  for(uint8_t i=0; i<sizeof(pins); i++) pinMode(pins[i], OUTPUT);
   
   // Determining the logical state of pins
   digitalWrite(DONE, LOW);
@@ -68,7 +68,7 @@ void setup(){
   powerOff();
 }
 
-void loop(){
+void loop() {
   tm1637.print(datas.temp_1); /* Displaying sensor data on display TM1637 */
   
   /* 
@@ -89,7 +89,7 @@ void loop(){
 /**
  * Power off
  */
-void powerOff(void){
+void powerOff(void) {
   digitalWrite(DONE, HIGH);
   delay(5);
   digitalWrite(DONE, LOW);
@@ -101,13 +101,13 @@ void powerOff(void){
 /**
  * Send data via UART
  */
-void dataSend(void){
+void dataSend(void) {
   getData();
   uint8_t attempts = 0;
 
   // wait if another wireless sensor is transmitting data now, 
   // but no more than 5 seconds
-  while(Serial.available()){
+  while(Serial.available()) {
     if(attempts++ > 25) break;
     Serial.read();
     delay(200);
@@ -117,22 +117,22 @@ void dataSend(void){
   Serial.print("{");
   Serial.print("\"b\":"); Serial.print(datas.adc);
   Serial.print(",\"num\":\""); Serial.print(SENSOR_NUMBER); Serial.print("\"");
-  if(detected.bme280){
+  if(detected.bme280) {
     Serial.print(",\"t\":"); Serial.print(datas.temp);
     Serial.print(",\"h\":"); Serial.print(datas.hum);
     Serial.print(",\"p\":"); Serial.print(datas.pres);
     Serial.print(",\"s\":"); Serial.print("\"BME280\"");
   }
-  else if(detected.sht21){
+  else if(detected.sht21) {
     Serial.print(",\"t\":"); Serial.print(datas.temp);
     Serial.print(",\"h\":"); Serial.print(datas.hum);
     Serial.print(",\"s\":"); Serial.print("\"SHT21\"");
   }
-  if(detected.max44009){
+  if(detected.max44009) {
     Serial.print(",\"l\":"); Serial.print(datas.light);
     Serial.print(",\"a\":"); Serial.print("\"MAX44009\"");
   }
-  if(detected.bh1750){
+  else if(detected.bh1750) {
     Serial.print(",\"l\":"); Serial.print(datas.light);
     Serial.print(",\"a\":"); Serial.print("\"BH1750\"");
   }
@@ -153,9 +153,12 @@ void dataSend(void){
     Serial.print(datas.pf, 2);
     Serial.print("]");
   #endif
-  if(detected.s8){
+  if(detected.s8) {
     Serial.print(",\"s8\":"); Serial.print(datas.co2);
   }
   Serial.println("}");
   Serial.flush();
+  #ifdef USE_DS18B20_1
+    delay(50);
+  #endif
 }
