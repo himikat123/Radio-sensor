@@ -9,7 +9,7 @@
 #define SYMB_D      0x12
 #define SYMB_Y      0x13
   
-class TM1637{
+class TM1637 {
   public:
     void print(float temp);
 
@@ -46,27 +46,27 @@ class TM1637{
 /**
  * Displays temperature on the display
  */
-void TM1637::print(float temp){
+void TM1637::print(float temp) {
   int8_t seg[6] = {SYMB_SPACE, SYMB_SPACE, SYMB_SPACE, SYMB_SPACE, SYMB_SPACE, SYMB_SPACE};
   int32_t tmp = round(temp);
-  if(tmp > 125 or tmp < -50){ // if the data is wrong
-    seg[3] = SYMB_MINUS;
-    seg[4] = SYMB_MINUS;
-    seg[5] = SYMB_GRADUS;
-    seg[0] = SYMB_C;
-    seg[1] = SYMB_SPACE;
-    seg[2] = SYMB_SPACE;
+  if(tmp > 125 or tmp < -50) { // if the data is wrong
+    seg[0] = SYMB_MINUS;
+    seg[1] = SYMB_MINUS;
+    seg[2] = SYMB_GRADUS;
+    seg[3] = SYMB_C;
+    seg[4] = SYMB_SPACE;
+    seg[5] = SYMB_SPACE;
   }
-  else{ // if the data is correct
+  else { // if the data is correct
     uint8_t th = floor(abs(tmp) / 10);
     uint8_t tl = abs(tmp) % 10;
     if(th == 0) th = SYMB_SPACE;
-    seg[3] = tmp < 0 ? SYMB_MINUS : tmp > 9 ? th : SYMB_SPACE;
-    seg[4] = tmp < 0 ? tmp < -9 ? th : tl : tl;
-    seg[5] = tmp < 0 ? tmp < -9 ? tl : SYMB_GRADUS : SYMB_GRADUS;
-    seg[0] = tmp < 0 ? tmp < -9 ? SYMB_GRADUS : SYMB_C : SYMB_C;
-    seg[1] = SYMB_SPACE;
-    seg[2] = SYMB_SPACE;
+    seg[0] = tmp < 0 ? SYMB_MINUS : tmp > 9 ? th : SYMB_SPACE;
+    seg[1] = tmp < 0 ? tmp < -9 ? th : tl : tl;
+    seg[2] = tmp < 0 ? tmp < -9 ? tl : SYMB_GRADUS : SYMB_GRADUS;
+    seg[3] = tmp < 0 ? tmp < -9 ? SYMB_GRADUS : SYMB_C : SYMB_C;
+    seg[4] = SYMB_SPACE;
+    seg[5] = SYMB_SPACE;
   }
 
   _start();
@@ -75,7 +75,7 @@ void TM1637::print(float temp){
   _start();
   _writeByte(0xC0);
 
-  for(int8_t i=0; i<6; i++){
+  for(int8_t i=0; i<6; i++) {
     _writeByte(font_tm1637[seg[i]]);
   }
   _stop();
@@ -87,8 +87,8 @@ void TM1637::print(float temp){
 /**
  * Sends a byte to display
  */
-void TM1637::_writeByte(byte data){
-  for(uint8_t i=0; i<8; i++){
+void TM1637::_writeByte(byte data) {
+  for(uint8_t i=0; i<8; i++) {
     digitalWrite(TM1637_CLK, LOW);
     delayMicroseconds(50);
     if(data & 0x01) digitalWrite(TM1637_DIO, HIGH);
@@ -106,7 +106,7 @@ void TM1637::_writeByte(byte data){
   pinMode(TM1637_DIO, INPUT);
   delayMicroseconds(50);
   uint8_t ack = digitalRead(TM1637_DIO);
-  if(ack == 0){
+  if(ack == 0) {
      pinMode(TM1637_DIO, OUTPUT);
      digitalWrite(TM1637_DIO, LOW);
   }
@@ -118,7 +118,7 @@ void TM1637::_writeByte(byte data){
 /**
  * Sends start command to display
  */
-void TM1637::_start(){
+void TM1637::_start() {
   digitalWrite(TM1637_CLK, HIGH);
   delayMicroseconds(50);
   digitalWrite(TM1637_DIO, HIGH);
@@ -132,7 +132,7 @@ void TM1637::_start(){
 /**
  * Sends stop command to display
  */
-void TM1637::_stop(void){
+void TM1637::_stop(void) {
   digitalWrite(TM1637_CLK, LOW);
   delayMicroseconds(50);
   digitalWrite(TM1637_DIO, LOW);
